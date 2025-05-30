@@ -1,6 +1,6 @@
 # Maintainer: cekita <ceka.dora@gmail.com>
 pkgname=repas-git
-pkgver=0.1.0.r0.g<commit>
+pkgver=0.1.0
 pkgrel=1
 pkgdesc="A blazingly fast CLI tool for managing files and folders with symbolic links"
 arch=('x86_64')
