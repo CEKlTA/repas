@@ -1,12 +1,12 @@
 # Maintainer: cekita <ceka.dora@gmail.com>
-pkgname=repas-git
+pkgname=repas
 pkgver=0.1.0
 pkgrel=1
 pkgdesc="A blazingly fast CLI tool for managing files and folders with symbolic links"
 arch=('x86_64')
 url="https://github.com/CEKlTA/repas"
 license=('MIT')
-makedepends=('git' 'rust' 'cargo')
+makedepends=('rust' 'cargo')
 depends=()
 provides=('repas')
 conflicts=()
