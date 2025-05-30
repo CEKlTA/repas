@@ -1,0 +1,15 @@
+pkgbase = repas-git
+	pkgdesc = A blazingly fast CLI tool for managing files and folders with symbolic links
+	pkgver = 0.1.0
+	pkgrel = 1
+	url = https://github.com/CEKlTA/repas
+	arch = x86_64
+	license = MIT
+	makedepends = git
+	makedepends = rust
+	makedepends = cargo
+	provides = repas
+	source = git+https://github.com/CEKlTA/repas.git
+	sha256sums = SKIP
+
+pkgname = repas-git
