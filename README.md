@@ -2,6 +2,15 @@
 
 A blazingly fast CLI tool for managing files and folders with symbolic links to centralize configuration across multiple machines. (or any other type of file if you feel like it)
 
+> **PLEASE, for god's sake DO NOT run this with `sudo`**  
+> If you know what you're doing and have permission problems, use:
+> 
+> ```bash
+> sudo -E repas ...
+> ```
+> 
+> Otherwise, it will use `/root` as the intended path — which may seriously mess things up.
+
 ## Overview
 
 I've got tired of searching for config files all over my big-ass linux. So, I made this to move configuration files to a central location (`~/.repas` by default). Also, you can restore the files if you ever need to.
@@ -68,9 +77,9 @@ This will:
 
 ### Environment Variables
 
-| Variable   | Description                   | Default    |
-|------------|-------------------------------|------------|
-| `APP_PATH` | Custom path for storing files | `~/.repas` |
+| Variable             | Description                   | Default    |
+|----------------------|-------------------------------|------------|
+| `REPAS_TRACK_FOLDER` | Custom path for storing files | `~/.repas` |
 
 ## Features
 
@@ -78,7 +87,6 @@ This will:
 
 - Automatic home directory expansion (`~` gets expanded to the user's home directory environmental variable)
 - Symlink detection to prevent recursive linking
-- Full path support for both source and destination
 
 ### Colored Output
 
@@ -86,7 +94,6 @@ Yes, There are colors, I'm not a monster:
 
 - Yellow: Warnings and directory creation
 - Cyan: Tracking operations
-- Magenta: Symlink removal
 - Green: Restore operations
 - Red: Error messages
 
