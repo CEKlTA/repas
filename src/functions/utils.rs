@@ -1,7 +1,7 @@
 use colored::*;
 use std::{
     env, fs,
-    io::Error,
+    io::{Error, ErrorKind},
     path::{Path, PathBuf},
 };
 
@@ -14,15 +14,21 @@ pub fn get_track_path() -> PathBuf {
 }
 
 pub fn resolve_path(path: &Path) -> std::io::Result<PathBuf> {
-    let parent = path.parent().unwrap_or_else(|| Path::new("."));
+    let parent = path
+        .parent()
+        .ok_or_else(|| Error::new(ErrorKind::InvalidInput, "Invalid path provided"))?;
 
-    let resolved_parent = fs::canonicalize(parent)?;
+    let parent_path = parent
+        .as_os_str()
+        .is_empty()
+        .then(|| Path::new("."))
+        .unwrap_or(parent);
 
-    let final_path = resolved_parent;
+    let resolved_parent = fs::canonicalize(parent_path)?;
 
     Ok(match path.file_name() {
-        Some(file_name) => final_path.join(file_name),
-        None => final_path,
+        Some(file_name) => resolved_parent.join(file_name),
+        None => resolved_parent,
     })
 }
 
