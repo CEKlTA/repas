@@ -48,12 +48,12 @@ impl OperationType {
         match self {
             OperationType::Track => {
                 if let Err(error) = track_handler(file_path, folder) {
-                    log_track_error(&file_path, &error);
+                    log_track_error(file_path, &error);
                 }
             }
             OperationType::Restore => {
                 if let Err(error) = restore_handler(file_path) {
-                    log_restore_error(&file_path, &error);
+                    log_restore_error(file_path, &error);
                 }
             }
         }

@@ -18,11 +18,11 @@ pub fn resolve_path(path: &Path) -> std::io::Result<PathBuf> {
         .parent()
         .ok_or_else(|| Error::new(ErrorKind::InvalidInput, "Invalid path provided"))?;
 
-    let parent_path = parent
-        .as_os_str()
-        .is_empty()
-        .then(|| Path::new("."))
-        .unwrap_or(parent);
+    let parent_path = if parent.as_os_str().is_empty() {
+        Path::new(".")
+    } else {
+        parent
+    };
 
     let resolved_parent = fs::canonicalize(parent_path)?;
 

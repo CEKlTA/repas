@@ -9,7 +9,7 @@ use std::{
 
 pub fn track_handler(from: &Path, to: &Path) -> Result<(), Error> {
     if from.is_symlink() {
-        log_skipping(&from);
+        log_skipping(from);
         return Ok(());
     }
 
