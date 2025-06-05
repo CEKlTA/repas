@@ -1,6 +1,6 @@
 pkgbase = repas
 	pkgdesc = A blazingly fast CLI tool for managing files and folders with symbolic links
-	pkgver = 0.2.0
+	pkgver = 0.2.1
 	pkgrel = 1
 	url = https://github.com/CEKlTA/repas
 	arch = x86_64

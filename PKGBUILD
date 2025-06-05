@@ -1,6 +1,6 @@
 # Maintainer: cekita <ceka.dora@gmail.com>
 pkgname=repas
-pkgver=0.2.0
+pkgver=0.2.1
 pkgrel=1
 pkgdesc="A blazingly fast CLI tool for managing files and folders with symbolic links"
 arch=('x86_64')
